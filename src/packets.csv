@@ -1,7 +1,0 @@
-"No.","Time","Source","Destination","Protocol","Length","Info"
-"2377","14.719986","2a06:c701:4821:6a00:b1b3:b8f7:77f5:e683","2a03:2880:f242:1c2:face:b00c:0:167","HTTP","627","GET /ws/chat?ED=CA0IBQ HTTP/1.1 "
-"2381","15.031483","2a03:2880:f242:1c2:face:b00c:0:167","2a06:c701:4821:6a00:b1b3:b8f7:77f5:e683","HTTP","262","HTTP/1.1 101 Switching Protocols "
-"3659","29.332945","10.0.0.7","107.23.147.37","HTTP","1027","GET /freews HTTP/1.1 "
-"3712","29.500490","107.23.147.37","10.0.0.7","HTTP","1202","HTTP/1.1 101 Switching Protocols "
-"3724","29.521557","10.0.0.7","35.171.60.72","HTTP","801","GET /socket.io/?EIO=4&transport=websocket&sid=7sm6qN7LTXwDI56xDinL HTTP/1.1 "
-"3753","29.676755","35.171.60.72","10.0.0.7","HTTP","742","HTTP/1.1 101 Switching Protocols "
