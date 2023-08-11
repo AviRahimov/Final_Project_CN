@@ -1,10 +1,7 @@
-import matplotlib.pyplot as plt
 import numpy as np
-from scipy.stats import gaussian_kde
 import matplotlib
-import matplotlib.pyplot as plt
 import pandas as pd
-import os
+import matplotlib.pyplot as plt
 
 matplotlib.use("TkAgg")
 
@@ -15,29 +12,41 @@ youtube_list = ['resources\\YOUTUBE_BACKGROUND_TARGET1.csv', 'resources\\YOUTUBE
                 'resources\\YOUTUBE_BACKGROUND_TARGET3.csv', 'resources\\YOUTUBE_BACKGROUND_TARGET4.csv']
 concat_list = filter_list + youtube_list
 
+# list of lists that contain for each csv file the times column as a list format
 times_list = []
 for i in range(len(concat_list)):
     df = pd.read_csv(concat_list[i])
     time_list = df['Time'].values.tolist()
     times_list.append(list(map(round, time_list)))
 
-# Given inter-arrival times
-inter_arrival_times = []
+# Given inter-arrival times for each csv file
+inter_arrival_times = [[], [], [], [], [], [], [], []]
 for i in range(len(times_list)):
-    inter_arrival_times.append([times_list[i] - times_list[i - 1])
+    for j in range(1, len(times_list[i])):
+        inter_arrival_times[i].append(times_list[i][j] - times_list[i][j - 1])
 
-# Calculate kernel density estimation
-kde = gaussian_kde(inter_arrival_times)
+index = 0
+for delay in inter_arrival_times:
+    recording_name = concat_list[index][10:-4]
+    max_value = max(delay)
+    bins = np.arange(0, max_value + 1)
 
-# Define the range of x values
-x_values = np.linspace(min(inter_arrival_times), max(inter_arrival_times), 1000)
+    # Create the bar histogram plot
+    plt.figure(figsize=(10, 6))  # Set the figure size (optional)
+    # Plot the histogram
+    plt.hist(delay, bins=bins, density=True, alpha=0.5, label='Histogram', color="cyan")
 
-# Calculate the corresponding y values (probability density)
-y_values = kde(x_values)
+    # Fit an exponential distribution to the data
+    mu = np.mean(delay)
+    fit_x = np.linspace(0, max_value, 100)
+    fit_y = (1 / mu) * np.exp(-fit_x / mu)
+    normalize_param = max(fit_y)
+    fit_y = fit_y / normalize_param
+    plt.plot(fit_x, fit_y, 'r-', label='Exponential Fit')
 
-# Create the plot
-plt.plot(x_values, y_values)
-plt.xlabel('Inter-Arrival Time')
-plt.ylabel('Probability Density')
-plt.title('Probability Density of Inter-Arrival Times')
-plt.show()
+    plt.xlabel('Inter-Arrival Time (seconds)')
+    plt.ylabel('Probability Density')
+    plt.title(f'Histogram of Inter-Arrival Times for recording: "{recording_name}"')
+    plt.savefig(f'res/{recording_name}_PDF_PLOT.png')
+    plt.show()
+    index += 1
