@@ -45,10 +45,10 @@ normalized_files_data = (files_and_audios_data - np.min(files_and_audios_data)) 
 normalized_videos_data = (videos_data - np.min(videos_data)) / (np.max(videos_data) - np.min(videos_data))
 
 # Plot the CCDFs with normalized x-axis
-plt.loglog(normalized_txt_data, ccdf_txt, label='Text')
-plt.loglog(normalized_images_data, ccdf_images, label='Images')
-plt.loglog(normalized_files_data, ccdf_files_and_audios, label='Files')
-plt.loglog(normalized_videos_data, ccdf_videos, label='Videos')
+plt.loglog(normalized_txt_data, ccdf_txt, 'co', linestyle='-', label='Text')
+plt.loglog(normalized_images_data, ccdf_images, '*', color='orange', linestyle='-', label='Images')
+plt.loglog(normalized_files_data, ccdf_files_and_audios, 'rs', linestyle='-', label='Files')
+plt.loglog(normalized_videos_data, ccdf_videos, 'g^', linestyle='-', label='Videos')
 
 plt.xlabel('Normalized Message Sizes To Their Maximum')
 plt.ylabel('Complementary CDF')

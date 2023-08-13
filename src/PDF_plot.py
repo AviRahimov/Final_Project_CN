@@ -33,8 +33,10 @@ for delay in inter_arrival_times:
 
     # Create the bar histogram plot
     plt.figure(figsize=(10, 6))  # Set the figure size (optional)
-    # Plot the histogram
-    plt.hist(delay, bins=bins, density=True, alpha=0.5, label='Histogram', color="cyan")
+
+    # Plot the hollow histogram (outline only)
+    plt.hist(delay, bins=bins, density=True, histtype='step', color="cyan", edgecolor="cyan",
+             label='Histogram of Inter-Arrival Delays (Hollow)')
 
     # Fit an exponential distribution to the data
     mu = np.mean(delay)
@@ -42,11 +44,15 @@ for delay in inter_arrival_times:
     fit_y = (1 / mu) * np.exp(-fit_x / mu)
     normalize_param = max(fit_y)
     fit_y = fit_y / normalize_param
-    plt.plot(fit_x, fit_y, 'r-', label='Exponential Fit')
+    plt.plot(fit_x, fit_y, 'r-', label='Fitted Exponential Distribution')
 
     plt.xlabel('Inter-Arrival Time (seconds)')
-    plt.ylabel('Probability Density')
+    plt.ylabel('Probability Density (PDF)')
     plt.title(f'Histogram of Inter-Arrival Times for recording: "{recording_name}"')
+
+    # Add a legend
+    plt.legend()
+
     plt.savefig(f'res/{recording_name}_PDF_PLOT.png')
     plt.show()
     index += 1
