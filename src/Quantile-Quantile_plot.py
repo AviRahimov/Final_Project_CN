@@ -2,11 +2,11 @@ import numpy as np
 import matplotlib
 import pandas as pd
 import matplotlib.pyplot as plt
-
+#
 matplotlib.use("TkAgg")
-
-# Load the CSV file into a DataFrame
-# Define lists of file paths
+#
+# # Load the CSV file into a DataFrame
+# # Define lists of file paths
 filter_list = ['resources\\WITH_TCP_FILTER_TARGET1.csv', 'resources\\WITH_TCP_FILTER_TARGET2.csv',
                'resources\\WITH_TCP_FILTER_TARGET3.csv', 'resources\\WITH_TCP_FILTER_TARGET4.csv']
 youtube_list = ['resources\\YOUTUBE_BACKGROUND_TARGET1.csv', 'resources\\YOUTUBE_BACKGROUND_TARGET2.csv',
@@ -62,5 +62,4 @@ for data in packet_delay_data:
 
     # Show the plot
     plt.show()
-
     index += 1

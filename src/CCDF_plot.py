@@ -21,10 +21,10 @@ df4 = pd.read_csv(filter_list[3])
 
 # Simulated data for different types: txt, images, files, videos
 # You would replace this with your actual data
-txt_data = df1['Time'].values
-files_and_audios_data = df2['Time'].values
-images_data = df3['Time'].values
-videos_data = df4['Time'].values
+txt_data = df1['Length'].values
+files_and_audios_data = df2['Length'].values
+images_data = df3['Length'].values
+videos_data = df4['Length'].values
 
 # Sort the data in ascending order
 txt_data = np.sort(txt_data)
