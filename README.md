@@ -24,8 +24,8 @@ The goal of the WhatsApp Web Packet Analysis project is to dissect and interpret
 The project is organized into three main directories:
 
 - `res`: This directory houses the plots generated during the analysis, including plots depicting functions of time as functions of packet size, PDF (probability density function) plots, and CCDF (Complementary CDF) plots.
-- `resources`: This directory contains eight CSV files, with four corresponding to filtered packets and four to unfiltered packets. These resources serve as the basis for the analysis.
-- `src`: Within this directory, you'll find four Python files. Each file contains code for a different type of plot: the CCDF plot, the PDF plot, and the time as a function of size plot.
+- `resources`: This directory contains eight pcapng files and, eight CSV files, with four corresponding to filtered packets and four to unfiltered packets. These resources serve as the basis for the analysis.
+- `src`: Within this directory, you'll find four Python files. Each file contains code for a different type of plot: the CCDF plot, the PDF plot, and the time as a function of the size plot.
 
 ## Packet Analysis
 
@@ -35,7 +35,7 @@ In this phase, the packet analysis is conducted while applying a filter specific
 
 ### Part 2: Without Filtering and Background Music
 
-The second phase of the analysis is conducted without any packet filtering, and it introduces a realistic element of background noise. The simulated background noise is akin to having YouTube music playing in the background. The objective here is to assess the impact of real-world noise on the accuracy of packet analysis.
+The second phase of the analysis is conducted without any packet filtering, and it introduces a realistic element of background noise. The simulated background noise is akin to having YouTube music playing in the background. The objective here is to assess real-world noise's impact on packet analysis accuracy.
 
 ## Plots
 
@@ -51,7 +51,7 @@ The `resources` directory encompasses the raw materials necessary for the analys
 
 ## Source Code
 
-The `src` directory contains the Python code required for generating different types of plots. The four Python files are dedicated to the CCDF plot, the PDF plots, and the time as a function of size plot.
+The `src` directory contains the Python code required for generating different types of plots. The four Python files are dedicated to the CCDF plot, the PDF plots, and the time as a function of the size plot.
 
 ## Contributing
 
