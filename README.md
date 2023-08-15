@@ -1,6 +1,6 @@
 # WhatsApp Web Packet Analysis (Final Project in Communication Networks)
 
-![GitHub](https://img.shields.io/github/license/AviRahimov/Final_Project_CN)
+![GitHub](https://img.shields.io/github/license/AviRahimov/Final_Project_CN.git)
 
 Welcome to the WhatsApp Web Packet Analysis project repository! This repository contains code and resources for analyzing packets from WhatsApp web group messages. The project involves sniffing packets, identifying message-related packets, and generating helpful plots to facilitate packet identification. The analysis is conducted in two distinct parts: one involving packet filtering, and the other simulating real-world noise with YouTube music playing in the background.
 
